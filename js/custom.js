@@ -32,7 +32,7 @@
 $(function () {
     "use strict";
     var wind = $(window);
-    
+
     // ScrollIt
     $.scrollIt({
         upKey: 38, // key code to navigate to the next section
@@ -43,7 +43,7 @@ $(function () {
         onPageChange: null, // function(pageIndex) that is called when page is changed
         topOffset: -70 // offste (in px) for fixed top navigation
     });
-    
+
     // Preloader
     $(window).load(function() {
         $('.preloader').delay(100).fadeOut("slow");
@@ -56,19 +56,19 @@ $(function () {
             , logo = $(".navbar .logo> img");
         if (bodyScroll > 100) {
             navbar.addClass("nav-scroll");
-            logo.attr('src', 'img/logo-dark.png');
+            logo.attr('src', 'https://4m4you.com/wp-content/uploads/2020/06/logo-placeholder.png');
         }
         else {
             navbar.removeClass("nav-scroll");
-            logo.attr('src', 'img/logo.png');
+            logo.attr('src', 'https://4m4you.com/wp-content/uploads/2020/06/logo-placeholder.png');
         }
     });
-    
+
     // Close navbar-collapse when a clicked
     $(".navbar-nav .dropdown-item a").on('click', function () {
         $(".navbar-collapse").removeClass("show");
     });
-    
+
     /* Custom owl-nav */
     var selector = $('.rooms1 .owl-carousel');
     $('.my-next-button').click(function() {
@@ -77,7 +77,7 @@ $(function () {
     $('.my-prev-button').click(function() {
       selector.trigger('prev.owl.carousel');
     });
-    
+
     // Sections data-background image
     var pageSection = $(".bg-img, section");
     pageSection.each(function (indx) {
@@ -85,7 +85,7 @@ $(function () {
             $(this).css("background-image", "url(" + $(this).data("background") + ")");
         }
     });
-    
+
     // Slider & Slider-Fade owlCarousel
     $(document).ready(function () {
         var owl = $('.header .owl-carousel');
@@ -139,7 +139,7 @@ $(function () {
             $('.owl-item').not('.cloned').eq(item).find('.button-2').addClass('animated fadeInUp');
         });
     });
-    
+
     // Image Gallery Scroll owlCarousel
     $('.galleryscroll .owl-carousel').owlCarousel({
         loop: true
@@ -165,7 +165,7 @@ $(function () {
             , }
         }
     });
-    
+
     // Clients owlCarousel
     $('.clients .owl-carousel').owlCarousel({
         loop: true
@@ -190,7 +190,7 @@ $(function () {
             , }
         }
     });
-    
+
     // Testimonials owlCarousel
     $('.testimonials .owl-carousel').owlCarousel({
         loop: true
@@ -215,11 +215,11 @@ $(function () {
             , }
         }
     });
-    
+
     // Rooms 1 owlCarousel
     $('.rooms1 .owl-carousel').owlCarousel({
         loop: true
-        , items: 2 
+        , items: 2
         , margin: 20
         , mouseDrag: true
         , autoplay: false
@@ -241,7 +241,7 @@ $(function () {
             , }
         }
     });
-    
+
     // Rooms 2 owlCarousel
     $('.rooms2 .owl-carousel').owlCarousel({
         loop: true,
@@ -267,7 +267,7 @@ $(function () {
             }
         }
     });
-    
+
     // Rooms 3
     $('.rooms3 .owl-carousel').owlCarousel({
         stagePadding: 30
@@ -298,9 +298,9 @@ $(function () {
             }
         }
 })
-    
-    
-    // Restaurant Menu owlCarousel 
+
+
+    // Restaurant Menu owlCarousel
     $('.restaurant-menu .owl-carousel').owlCarousel({
         loop: true,
         margin: 0,
@@ -324,7 +324,7 @@ $(function () {
             }
         }
     });
-    
+
     // Restaurant Menu Tabs
     $(".restaurant-menu .tabs-icon").on("click", ".item", function () {
         $(".item").removeClass("active");
@@ -335,8 +335,8 @@ $(function () {
     $(".restaurant-menu .tabs-icon").on("click", ".owl-item", function () {
         $(this).addClass("actived").siblings().removeClass("actived");
     });
-    
-    
+
+
     // Team owlCarousel
     $('.team .owl-carousel').owlCarousel({
         loop: true
@@ -365,7 +365,7 @@ $(function () {
             , }
         }
     });
-    
+
     // Blog 1 owlCarousel
     $('.blog1 .owl-carousel').owlCarousel({
         loop: true
@@ -394,7 +394,7 @@ $(function () {
             , }
         }
     });
-    
+
     // Magnific Popup
     $(".img-zoom").magnificPopup({
         type: "image"
@@ -414,7 +414,7 @@ $(function () {
         , preloader: false
         , fixedContentPos: false
     });
-    
+
     // Accordion (F.A.Qs)
     if ($(".accordion-box").length) {
         $(".accordion-box").on("click", ".acc-btn", function () {
@@ -436,7 +436,7 @@ $(function () {
             }
         });
     }
-    
+
     // Animations
     var contentWayPoint = function () {
         var i = 0;
@@ -495,7 +495,7 @@ $(function () {
             }
         });
     }
-    
+
 
     // Pricing
     $('.pricing').each(function(index, value) {
@@ -520,8 +520,8 @@ $(function () {
                 radix.find('.item.active').css('width', activeWidth);
             });
         });
-    
-    // Offers 2 
+
+    // Offers 2
     $('.offers2 .item').on('mouseenter click', function () {
         var tab_id = $(this).attr('data-tab');
         $('.offers2 .item').removeClass('current');
@@ -534,7 +534,7 @@ $(function () {
             return false;
         }
     });
-    
+
     // Facilities 2
     if ($(".facilities2").length) {
         $(".facilities2 .tab-buttons .tab-btn").on("click", function (e) {
@@ -564,10 +564,10 @@ $(function () {
           }
         });
       }
-    
+
     // YouTubePopUp
     $("a.vid").YouTubePopUp();
-    
+
     // Scroll back to top
     var progressPath = document.querySelector('.progress-wrap path');
     var pathLength = progressPath.getTotalLength();
@@ -601,17 +601,17 @@ $(function () {
             }, duration);
             return false;
         })
-    
+
     // Select2
     $('.select2').select2({
         minimumResultsForSearch: Infinity,
     });
-    
+
     // Datepicker
     $(".datepicker").datepicker({
         orientation: "top"
     });
-    
+
     // Button
         var buttons = document.querySelectorAll(".button-1, .button-2, button-3, btn-form1-submit, tab-btn, .curv-butn");
         for(var i = 0; i < buttons.length; i++) {
@@ -623,7 +623,7 @@ $(function () {
               button.classList.remove("active");
           });
         }
-    
+
 }());
 
 
