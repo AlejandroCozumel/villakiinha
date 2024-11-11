@@ -52,6 +52,7 @@ body {
     -moz-osx-font-smoothing: grayscale;
     word-break: break-word;
     -webkit-font-smoothing: antialiased;
+    scroll-behavior: smooth !important;
 }
 * {
     margin: 0;
@@ -62,6 +63,9 @@ body {
     list-style: none;
     word-wrap: break-word;
 }
+:target {
+    scroll-margin-top: 100px; /* Adjust this value based on your header height */
+  }
 body {
     font-family: "Urbanist", sans-serif;
     font-size: 17px;
@@ -2182,7 +2186,7 @@ blockquote cite:before {
         transform: scale(.9)!important;
         margin-bottom: 0;
     }
-    
+
     .rooms3 .item .cont {
         padding: 20px;
     }
@@ -2682,7 +2686,7 @@ blockquote cite:before {
         border-left: 0px solid #e5e2dd!important;
         border-bottom: 1px solid #e5e2dd!important;
     }
-    
+
     .facilities2 ul.tab-buttons li.tab-btn.active-btn {
         border-bottom: 3px solid #ac8d56!important;
     }
@@ -3281,7 +3285,7 @@ blockquote cite:before {
 .pricing2 .item .price {
     margin: 0;
     padding: 0;
-    display: block; 
+    display: block;
     margin-bottom: 15px;
 }
 .pricing2 .item .price sup {
@@ -3315,10 +3319,10 @@ blockquote cite:before {
     padding-bottom: 15px;
     margin-bottom: 30px;
 }
-.pricing2 .item .pricing-text, 
+.pricing2 .item .pricing-text,
 .pricing2 .item .pricing-text li {
     padding: 0;
-    margin: 0; 
+    margin: 0;
 }
 .pricing2 .item .pricing-text li {
     list-style: none;
@@ -3331,11 +3335,11 @@ blockquote cite:before {
     color: #BD945A;
     margin-right: 10px;
 }
-.pricing2 .item:hover, 
+.pricing2 .item:hover,
 .pricing2 .item:focus {
     -webkit-box-shadow: 0px 24px 48px -13px rgba(0, 0, 0, 0.11);
     -moz-box-shadow: 0px 24px 48px -13px rgba(0, 0, 0, 0.11);
-    box-shadow: 0px 24px 48px -13px rgba(0, 0, 0, 0.11); 
+    box-shadow: 0px 24px 48px -13px rgba(0, 0, 0, 0.11);
 }
 .pricing2 .item .butn-dark {
     display: grid;
@@ -4424,7 +4428,7 @@ body.mfp-zoom-out-cur {
     color: #141414;
     font-weight: 400;
 }
-.blog1 .item:hover .img .cat { 
+.blog1 .item:hover .img .cat {
     background: #fff;
 }
 .blog1 .item .cont {
@@ -5313,7 +5317,7 @@ body.mfp-zoom-out-cur {
     }
     .btn-form1-submit:after {
         background: none;
-    }   
+    }
 }
 /* booking form */
 .booking-box {
