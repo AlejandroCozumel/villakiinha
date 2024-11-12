@@ -1844,18 +1844,28 @@ blockquote cite:before {
 .video-fullscreen-wrap {
     position: relative;
     min-height: 100vh;
+    min-height: 100dvh;
     overflow: hidden;
+    width: 100%;  /* Added to ensure full width */
 }
+
 .video-fullscreen-video {
     height: 100vh;
+    width: 100%;  /* Added for full width */
+    position: relative; /* Added for overlay positioning */
 }
+
 .video-fullscreen-wrap video {
+    position: absolute; /* Added to ensure full coverage */
+    top: 0;            /* Added to fix positioning */
+    left: 0;           /* Added to fix positioning */
     width: 100vw;
-    min-width: 100%;
-    min-height: 100vh;
-    -o-object-fit: cover;
+    height: 100vh;     /* Changed from min-height for consistency */
+    height: 100dvh;    /* Dynamic viewport height */
     object-fit: cover;
+    z-index: 0;        /* Added to ensure video stays behind content */
 }
+
 .video-fullscreen-wrap .video-fullscreen-inner {
     position: absolute;
     top: 0;

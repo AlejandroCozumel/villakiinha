@@ -107,19 +107,18 @@
       <div class="video-fullscreen-wrap">
         <!-- The opacity on the image is made with "data-overlay-dark="number". You can change it using the numbers 0-9. -->
         <div class="video-fullscreen-video" data-overlay-dark="4">
-          <video playsinline="" autoplay="" loop="" muted="">
+          <video
+            playsinline
+            autoplay
+            loop
+            muted
+            preload="auto"
+          >
             <source
-              src="https://duruthemes.com/demo/html/rixos/video.mp4"
+              src="video/hero.mp4"
               type="video/mp4"
               autoplay=""
-              loop=""
-              muted=""
-            />
-            <source
-              src="https://duruthemes.com/demo/html/rixos/video.webm"
-              type="video/webm"
-              autoplay=""
-              loop=""
+              loop="r"
               muted=""
             />
           </video>
@@ -1029,7 +1028,6 @@
       id="gallery"
       data-scroll-index="4"
       class="section-padding bg-lightbrown h-auto"
-      id="galley"
     >
       <div class="container">
         <div class="row justify-content-center">
@@ -1042,103 +1040,116 @@
           class="row galleryscroll"
           data-masonry='{"percentPosition": true }'
         >
-          <div class="col-lg-3 col-md-6 mb-25">
-            <div class="item">
+          <!-- First Row -->
+          <div class="col-lg-3 col-md-6 mb-25" style="height: 300px">
+            <div class="item" style="height: 100%">
               <a
                 href="img/gallery/01.jpg"
                 title=""
                 class="gallery-masonry-item-img-link img-zoom"
+                style="height: 100%"
               >
-                <div class="img">
+                <div class="img" style="height: 100%">
                   <img
                     src="img/gallery/01.jpg"
                     class="img-fluid mx-auto d-block"
+                    style="height: 100%; object-fit: cover"
                     alt=""
                   />
                 </div>
               </a>
             </div>
           </div>
-          <div class="col-lg-6 col-md-6 mb-25">
-            <div class="item">
+          <div class="col-lg-6 col-md-6 mb-25" style="height: 300px">
+            <div class="item" style="height: 100%">
               <a
                 href="img/gallery/02.jpg"
                 title=""
                 class="gallery-masonry-item-img-link img-zoom"
+                style="height: 100%"
               >
-                <div class="img">
+                <div class="img" style="height: 100%">
                   <img
                     src="img/gallery/02.jpg"
                     class="img-fluid mx-auto d-block"
+                    style="height: 100%; object-fit: cover"
                     alt=""
                   />
                 </div>
               </a>
             </div>
           </div>
-          <div class="col-lg-3 col-md-6 mb-25">
-            <div class="item">
+          <div class="col-lg-3 col-md-6 mb-25" style="height: 300px">
+            <div class="item" style="height: 100%">
               <a
                 href="img/gallery/03.jpg"
                 title=""
                 class="gallery-masonry-item-img-link img-zoom"
+                style="height: 100%"
               >
-                <div class="img">
+                <div class="img" style="height: 100%">
                   <img
                     src="img/gallery/03.jpg"
                     class="img-fluid mx-auto d-block"
+                    style="height: 100%; object-fit: cover"
                     alt=""
                   />
                 </div>
               </a>
             </div>
           </div>
-
-          <div class="col-lg-3 col-md-6 mb-25">
-            <div class="item">
+          <!-- Second Row -->
+          <div class="col-lg-3 col-md-6 mb-25" style="height: 300px">
+            <div class="item" style="height: 100%">
               <a
                 href="img/gallery/04.jpg"
                 title=""
                 class="gallery-masonry-item-img-link img-zoom"
+                style="height: 100%"
               >
-                <div class="img">
+                <div class="img" style="height: 100%">
                   <img
                     src="img/gallery/04.jpg"
                     class="img-fluid mx-auto d-block"
+                    style="height: 100%; object-fit: cover"
                     alt=""
                   />
                 </div>
               </a>
             </div>
           </div>
-          <div class="col-lg-6 col-md-6 mb-25">
-            <div class="item">
+          <div class="col-lg-6 col-md-6 mb-25" style="height: 300px">
+            <div class="item" style="height: 100%">
               <a
                 href="img/gallery/05.jpg"
                 title=""
                 class="gallery-masonry-item-img-link img-zoom"
+                style="height: 100%"
               >
-                <div class="img">
+                <div class="img" style="height: 100%">
                   <img
                     src="img/gallery/05.jpg"
                     class="img-fluid mx-auto d-block"
+                    style="height: 100%; object-fit: cover"
                     alt=""
                   />
                 </div>
               </a>
             </div>
           </div>
-          <div class="col-lg-3 col-md-6 mb-25">
-            <div class="item">
+          <div class="col-lg-3 col-md-6 mb-25" style="height: 300px">
+            <div class="item" style="height: 100%">
               <a
                 href="img/gallery/06.jpg"
                 title=""
                 class="gallery-masonry-item-img-link img-zoom"
+                style="height: 100%"
               >
-                <div class="img">
+                <div class="img" style="height: 100%">
                   <img
                     src="img/gallery/06.jpg"
                     class="img-fluid mx-auto d-block"
+                    style="height: 100%; object-fit: cover"
                     alt=""
                   />
                 </div>
@@ -1203,7 +1214,9 @@
                     <div class="contents">
                       <span class="fa-thin fa-location-dot"></span>
                       <h2 class="title">Villa KiinHa, MX</h2>
-                      <p class="text">Carretera TRansversal km.11<br />Cozumel, Mexico</p>
+                      <p class="text">
+                        Carretera TRansversal km.11<br />Cozumel, Mexico
+                      </p>
                     </div>
                   </div>
                   <div class="back">
@@ -1236,13 +1249,13 @@
               <div class="col-md-12">
                 <div class="map">
                   <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1571.895310113615!2d-86.86728209879804!3d20.439788186564265!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjDCsDI2JzIzLjIiTiA4NsKwNTInMDIuMiJX!5e0!3m2!1sen!2smx!4v1731370012308!5m2!1sen!2smx&markers=color:red%7C20.439788,-86.867282"
-                  width="100%"
-                  height="450"
-                  style="border: 0; border-radius: 5px"
-                  allowfullscreen=""
-                  loading="lazy"
-                ></iframe>
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1571.895310113615!2d-86.86728209879804!3d20.439788186564265!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjDCsDI2JzIzLjIiTiA4NsKwNTInMDIuMiJX!5e0!3m2!1sen!2smx!4v1731370012308!5m2!1sen!2smx&markers=color:red%7C20.439788,-86.867282"
+                    width="100%"
+                    height="450"
+                    style="border: 0; border-radius: 5px"
+                    allowfullscreen=""
+                    loading="lazy"
+                  ></iframe>
                 </div>
               </div>
             </div>
