@@ -2,7 +2,6 @@ export async function onRequestPost({ request }) {
   try {
     const formData = await request.formData();
     const data = Object.fromEntries(formData);
-
     const emailBody = `
       New Contact Form Submission:
       Name: ${data.name}
@@ -11,7 +10,6 @@ export async function onRequestPost({ request }) {
       Subject: ${data.subject}
       Message: ${data.message}
     `;
-
     await fetch('https://api.mailchannels.net/tx/v1/send', {
       method: 'POST',
       headers: {
@@ -20,7 +18,7 @@ export async function onRequestPost({ request }) {
       body: JSON.stringify({
         personalizations: [
           {
-            to: [{ email: 'reservations@villakiinha.com' }],
+            to: [{ email: 'alejandroo14@gmail.com' }], // Send directly to Gmail
           },
         ],
         from: {
@@ -36,12 +34,10 @@ export async function onRequestPost({ request }) {
         ],
       }),
     });
-
     return new Response(JSON.stringify({ success: true }), {
       headers: { 'Content-Type': 'application/json' },
       status: 200
     });
-
   } catch (error) {
     console.error('Error:', error);
     return new Response(JSON.stringify({ success: false }), {
