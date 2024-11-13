@@ -107,13 +107,7 @@
       <div class="video-fullscreen-wrap">
         <!-- The opacity on the image is made with "data-overlay-dark="number". You can change it using the numbers 0-9. -->
         <div class="video-fullscreen-video" data-overlay-dark="4">
-          <video
-            playsinline
-            autoplay
-            loop
-            muted
-            preload="auto"
-          >
+          <video playsinline autoplay loop muted preload="auto">
             <source
               src="video/hero.mp4"
               type="video/mp4"
@@ -1202,7 +1196,7 @@
         </div>
       </div>
     </section>
-    <!-- Booking Search -->
+    <!-- CONTACT FORM -->
     <section class="contact section-padding bg-lightbrown">
       <div class="container">
         <div class="row">
@@ -1262,7 +1256,7 @@
           </div>
           <div class="col-lg-4 offset-lg-1 col-md-12">
             <div class="form2-sidebar mt--240">
-              <form action="#" class="form2">
+              <form action="/api/submit" class="form2" method="POST">
                 <div class="head">
                   <div class="row">
                     <div class="col-md-12">
@@ -1273,16 +1267,31 @@
                 <div class="cont">
                   <div class="row">
                     <div class="col-lg-12 col-md-12 form-group">
-                      <input type="text" placeholder="Name" required />
+                      <input
+                        type="text"
+                        name="name"
+                        placeholder="Name"
+                        required
+                      />
                     </div>
                     <div class="col-lg-12 col-md-12 form-group">
-                      <input type="email" placeholder="Email" required />
+                      <input
+                        type="email"
+                        name="email"
+                        placeholder="Email"
+                        required
+                      />
                     </div>
                     <div class="col-lg-12 col-md-12 form-group">
-                      <input type="text" placeholder="Phone" required />
+                      <input
+                        type="text"
+                        name="phone"
+                        placeholder="Phone"
+                        required
+                      />
                     </div>
                     <div class="col-md-12 form-group">
-                      <input type="text" placeholder="Subject" />
+                      <input type="text" name="subject" placeholder="Subject" />
                     </div>
                     <div class="col-md-12 form-group">
                       <textarea
@@ -1294,7 +1303,7 @@
                       ></textarea>
                     </div>
                     <div class="col-md-12">
-                      <button class="button-3">
+                      <button type="submit" class="button-3">
                         <i class="fa-light fa-paper-plane"></i> Submit
                       </button>
                     </div>

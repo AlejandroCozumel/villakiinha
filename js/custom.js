@@ -26,6 +26,7 @@
 24. YouTubePopUp
 25. Scroll back to top
 26. Button
+27. SendEmail
 
 =========================================== */
 
@@ -626,4 +627,33 @@ $(function () {
 
 }());
 
+$('.form2').on('submit', function(e) {
+    e.preventDefault();
 
+    const form = $(this);
+    const submitButton = form.find('button[type="submit"]');
+
+    // Disable button during submission
+    submitButton.prop('disabled', true);
+
+    fetch(form.attr('action'), {
+        method: 'POST',
+        body: new FormData(form[0])
+    })
+    .then(response => response.json())
+    .then(data => {
+        if(data.success) {
+            // Clear form
+            form[0].reset();
+            alert('Thank you for your message!');
+        }
+    })
+    .catch(error => {
+        alert('There was an error sending your message. Please try again.');
+        console.error('Error:', error);
+    })
+    .finally(() => {
+        // Re-enable button
+        submitButton.prop('disabled', false);
+    });
+})
