@@ -57,11 +57,11 @@ $(function () {
             , logo = $(".navbar .logo> img");
         if (bodyScroll > 100) {
             navbar.addClass("nav-scroll");
-            logo.attr('src', 'https://4m4you.com/wp-content/uploads/2020/06/logo-placeholder.png');
+            logo.attr('src', 'img/Villa.png');
         }
         else {
             navbar.removeClass("nav-scroll");
-            logo.attr('src', 'https://4m4you.com/wp-content/uploads/2020/06/logo-placeholder.png');
+            logo.attr('src', 'img/Villa.png');
         }
     });
 
