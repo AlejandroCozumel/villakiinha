@@ -5623,7 +5623,7 @@ body.mfp-zoom-out-cur {
 .progress-wrap {
     position: fixed;
     bottom: 30px;
-    right: 30px;
+    left: 30px;
     height: 55px;
     width: 55px;
     cursor: pointer;
