@@ -20,11 +20,11 @@ export async function onRequestPost({ request }) {
       body: JSON.stringify({
         personalizations: [
           {
-            to: [{ email: 'reservations@villakiinha.com' }],
+            to: [{ email: 'alejandroo14@gmail.com' }],
           },
         ],
         from: {
-          email: 'noreply@villakiinha.com',
+          email: 'reservations@villakiinha.com',
           name: 'Villa KiinHa Contact Form'
         },
         subject: 'New Contact Form Submission',
