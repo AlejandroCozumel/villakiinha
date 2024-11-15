@@ -24,7 +24,7 @@ export async function onRequestPost({ request }) {
           },
         ],
         from: {
-          email: 'reservations@villakiinha.com',
+          email: 'noreply@villakiinha.com',
           name: 'Villa KiinHa Contact Form'
         },
         subject: 'New Contact Form Submission',
