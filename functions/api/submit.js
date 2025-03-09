@@ -1,32 +1,62 @@
-document.querySelector('.form2').addEventListener('submit', async (e) => {
-  e.preventDefault();
-
-  const submitButton = e.target.querySelector('button[type="submit"]');
-  const originalButtonText = submitButton.innerHTML;
-
+export async function onRequestPost({ request }) {
   try {
-      submitButton.disabled = true;
-      submitButton.innerHTML = '<i class="fa-light fa-spinner fa-spin"></i> Sending...';
-
-      const formData = new FormData(e.target);
-      const response = await fetch('/api/submit', {
-          method: 'POST',
-          body: formData
-      });
-
-      const result = await response.json();
-
-      if (result.success) {
-          alert('Thank you for your message. We will contact you soon!');
-          e.target.reset();
-      } else {
-          throw new Error(result.error || 'Failed to send message');
-      }
+    const formData = await request.formData();
+    const data = Object.fromEntries(formData);
+    const emailBody = `
+    New Contact Form Submission:
+    Name: ${data.name}
+    Email: ${data.email}
+    Phone: ${data.phone}
+    Subject: ${data.subject}
+    Message: ${data.message}
+    `;
+    const mailResponse = await fetch('https://api.mailchannels.net/tx/v1/send', {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json',
+        // Add these headers
+        'X-MailChannels-API-Version': '1.0',
+        'X-MailChannels-Domain': 'villakiinha.com'
+      },
+      body: JSON.stringify({
+        personalizations: [
+          {
+            to: [{ email: 'reservations@villakiinha.com' }],
+            dkim_domain: "villakiinha.com",
+            dkim_selector: "mailchannels",
+            dkim_private_key: "YOUR_PRIVATE_KEY"
+          },
+        ],
+        from: {
+          email: 'noreply@villakiinha.com',
+          name: 'Villa KiinHa Contact Form'
+        },
+        subject: 'New Contact Form Submission',
+        content: [
+          {
+            type: 'text/plain',
+            value: emailBody,
+          },
+        ],
+      }),
+    });
+    if (!mailResponse.ok) {
+      const errorText = await mailResponse.text();
+      console.error('MailChannels error:', errorText);
+      throw new Error(`Failed to send email: ${errorText}`);
+    }
+    return new Response(JSON.stringify({ success: true }), {
+      headers: { 'Content-Type': 'application/json' },
+      status: 200
+    });
   } catch (error) {
-      alert('Sorry, there was an error sending your message. Please try again later.');
-      console.error('Form submission error:', error);
-  } finally {
-      submitButton.disabled = false;
-      submitButton.innerHTML = originalButtonText;
+    console.error('Error:', error);
+    return new Response(JSON.stringify({
+      success: false,
+      error: error.message
+    }), {
+      status: 500,
+      headers: { 'Content-Type': 'application/json' }
+    });
   }
-});
+}
