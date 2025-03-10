@@ -695,50 +695,46 @@ $(
 );
 
 // SendEmail
-$("#contactForm").on("submit", function (e) {
-  // Make sure to prevent default form submission
-  e.preventDefault();
+$(document).ready(function() {
+  $("#contactForm").on("submit", function (e) {
+      // Prevent ANY form submission
+      e.preventDefault();
+      e.stopPropagation();
 
-  const form = $(this);
-  const submitButton = form.find('button[type="submit"]');
-  const originalButtonText = submitButton.html();
+      const form = $(this);
+      const submitButton = form.find('button[type="submit"]');
+      const originalButtonText = submitButton.html();
 
-  // Disable button and show loading state
-  submitButton.prop("disabled", true);
-  submitButton.html('<i class="fa-light fa-spinner fa-spin"></i> Sending...');
+      // Disable button and show loading state
+      submitButton.prop("disabled", true);
+      submitButton.html('<i class="fa-light fa-spinner fa-spin"></i> Sending...');
 
-  // Prepare template parameters
-  const templateParams = {
-    from_name: form.find('[name="from_name"]').val(),
-    from_email: form.find('[name="from_email"]').val(),
-    phone: form.find('[name="phone"]').val(),
-    subject: form.find('[name="subject"]').val(),
-    message: form.find('[name="message"]').val(),
-  };
+      // Prepare template parameters
+      const templateParams = {
+          from_name: form.find('[name="from_name"]').val(),
+          from_email: form.find('[name="from_email"]').val(),
+          phone: form.find('[name="phone"]').val(),
+          subject: form.find('[name="subject"]').val(),
+          message: form.find('[name="message"]').val(),
+      };
 
-  // Send email using EmailJS
-  emailjs
-    .send("service_kkup9kp", "template_db2ezs6", templateParams)
-    .then(
-      function () {
-        // Success - reset form and show message
-        form[0].reset();
-        alert("Thank you for your message. We will contact you soon!");
-      },
-      function (error) {
-        // Error handling
-        console.error("Email error:", error);
-        alert(
-          "Sorry, there was an error sending your message. Please try again later."
-        );
-      }
-    )
-    .finally(function () {
-      // Reset button state
-      submitButton.prop("disabled", false);
-      submitButton.html(originalButtonText);
-    });
+      // Send email using EmailJS directly
+      emailjs.send("service_kkup9kp", "template_db2ezs6", templateParams)
+          .then(
+              function() {
+                  form[0].reset();
+                  alert("Thank you for your message. We will contact you soon!");
+              },
+              function(error) {
+                  console.error("Email error:", error);
+                  alert("Sorry, there was an error sending your message. Please try again later.");
+              }
+          )
+          .finally(function() {
+              submitButton.prop("disabled", false);
+              submitButton.html(originalButtonText);
+          });
 
-  // Return false to ensure form doesn't submit
-  return false;
+      return false; // Extra prevention
+  });
 });
