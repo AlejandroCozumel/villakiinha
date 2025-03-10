@@ -696,7 +696,9 @@ $(
 
 // SendEmail
 $("#contactForm").on("submit", function (e) {
+  // Make sure to prevent default form submission
   e.preventDefault();
+
   const form = $(this);
   const submitButton = form.find('button[type="submit"]');
   const originalButtonText = submitButton.html();
@@ -736,4 +738,7 @@ $("#contactForm").on("submit", function (e) {
       submitButton.prop("disabled", false);
       submitButton.html(originalButtonText);
     });
+
+  // Return false to ensure form doesn't submit
+  return false;
 });
