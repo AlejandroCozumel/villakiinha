@@ -10,53 +10,56 @@ export async function onRequestPost({ request }) {
     Subject: ${data.subject}
     Message: ${data.message}
     `;
-    const mailResponse = await fetch('https://api.mailchannels.net/tx/v1/send', {
-      method: 'POST',
-      headers: {
-        'content-type': 'application/json',
-        // Add these headers
-        'X-MailChannels-API-Version': '1.0',
-        'X-MailChannels-Domain': 'villakiinha.com'
-      },
-      body: JSON.stringify({
-        personalizations: [
-          {
-            to: [{ email: 'reservations@villakiinha.com' }],
-            dkim_domain: "villakiinha.com",
-            dkim_selector: "mailchannels",
-            dkim_private_key: "YOUR_PRIVATE_KEY"
-          },
-        ],
-        from: {
-          email: 'noreply@villakiinha.com',
-          name: 'Villa KiinHa Contact Form'
+
+    const mailResponse = await fetch(
+      "https://api.mailchannels.net/tx/v1/send",
+      {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
         },
-        subject: 'New Contact Form Submission',
-        content: [
-          {
-            type: 'text/plain',
-            value: emailBody,
+        body: JSON.stringify({
+          personalizations: [
+            {
+              to: [{ email: "reservations@villakiinha.com" }],
+            },
+          ],
+          from: {
+            email: "noreply@villakiinha.com",
+            name: "Villa KiinHa Contact Form",
           },
-        ],
-      }),
-    });
+          subject: "New Contact Form Submission",
+          content: [
+            {
+              type: "text/plain",
+              value: emailBody,
+            },
+          ],
+        }),
+      }
+    );
+
     if (!mailResponse.ok) {
       const errorText = await mailResponse.text();
-      console.error('MailChannels error:', errorText);
+      console.error("MailChannels error:", errorText);
       throw new Error(`Failed to send email: ${errorText}`);
     }
+
     return new Response(JSON.stringify({ success: true }), {
-      headers: { 'Content-Type': 'application/json' },
-      status: 200
+      headers: { "Content-Type": "application/json" },
+      status: 200,
     });
   } catch (error) {
-    console.error('Error:', error);
-    return new Response(JSON.stringify({
-      success: false,
-      error: error.message
-    }), {
-      status: 500,
-      headers: { 'Content-Type': 'application/json' }
-    });
+    console.error("Error:", error);
+    return new Response(
+      JSON.stringify({
+        success: false,
+        error: error.message,
+      }),
+      {
+        status: 500,
+        headers: { "Content-Type": "application/json" },
+      }
+    );
   }
 }
