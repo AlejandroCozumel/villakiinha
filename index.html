@@ -1279,7 +1279,7 @@
           </div>
           <div class="col-lg-4 offset-lg-1 col-md-12">
             <div class="form2-sidebar mt--240">
-              <form action="/api/submit" class="form2" method="POST">
+              <form id="contactForm" class="form2">
                 <div class="head">
                   <div class="row">
                     <div class="col-md-12">
@@ -1292,7 +1292,7 @@
                     <div class="col-lg-12 col-md-12 form-group">
                       <input
                         type="text"
-                        name="name"
+                        name="from_name"
                         placeholder="Name"
                         required
                       />
@@ -1300,7 +1300,7 @@
                     <div class="col-lg-12 col-md-12 form-group">
                       <input
                         type="email"
-                        name="email"
+                        name="from_email"
                         placeholder="Email"
                         required
                       />
@@ -1484,6 +1484,17 @@
     <script src="js/YouTubePopUp.js"></script>
     <script src="js/select2.js"></script>
     <script src="js/datepicker.js"></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+    ></script>
+    <script type="text/javascript">
+      (function () {
+        emailjs.init({
+          publicKey: "3iO50ClLhetAQDnVh",
+        });
+      })();
+    </script>
     <script src="js/custom.js"></script>
   </body>
 </html>
